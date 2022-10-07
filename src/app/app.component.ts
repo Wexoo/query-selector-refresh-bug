@@ -12,7 +12,6 @@ import {
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit, AfterViewInit {
-  
   private toggleEvent;
 
   constructor(private elementRef: ElementRef) {}
@@ -31,12 +30,12 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   toggleFaq(event) {
-    this.closeOpenNodes(event);
+    this.resetChangedNodes(event);
     event.target.parentNode.classList.toggle('header-red');
     // this.getFaqHeaders().removeEventListener('click', this.toggleEvent);
   }
 
-  private closeOpenNodes(event) {
+  private resetChangedNodes(event) {
     this.getFaqHeaders().forEach((c) => {
       if (c != event.target) {
         c.parentNode.classList.remove('header-red');
